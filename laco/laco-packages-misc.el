@@ -18,4 +18,6 @@
 ;; Show parenthesis mode
 (show-paren-mode 1)
 
+(package-require 'undo-tree)
+
 (provide 'laco-packages-misc)
