@@ -1,0 +1,10 @@
+auto-save-list
+*elc
+session*
+tramp
+\#*
+history
+.session
+*~
+elpa
+/projectile-bookmarks.eld
