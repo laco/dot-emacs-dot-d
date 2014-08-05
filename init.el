@@ -9,6 +9,17 @@
 (dolist (mode '(menu-bar-mode tool-bar-mode scroll-bar-mode))
   (when (fboundp mode) (funcall mode -1)))
 
+
+;; fix PATH environment variable
+(setenv "PATH"
+  (concat
+    "/usr/local/sbin" ":"
+    "/usr/local/bin" ":"
+    (getenv "PATH")
+  )
+)
+
+
 ;; Always ALWAYS use UTF-8
 (set-terminal-coding-system 'utf-8)
 (set-keyboard-coding-system 'utf-8)

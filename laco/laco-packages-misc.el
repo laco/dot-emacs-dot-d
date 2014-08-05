@@ -1,5 +1,11 @@
 ;;; laco-packages-misc.el
 
+(package-require 'exec-path-from-shell)
+(when (memq window-system '(mac ns))
+  (exec-path-from-shell-initialize))
+
+
+
 (package-require 'autopair)
 
 (package-require 'popwin)
