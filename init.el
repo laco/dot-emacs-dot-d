@@ -98,3 +98,4 @@
 
 ;; Load custom settings
 (load custom-file 'noerror)
+(put 'narrow-to-region 'disabled nil)
