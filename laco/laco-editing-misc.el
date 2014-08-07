@@ -52,5 +52,8 @@
 
 (define-key ctl-x-4-map "t" 'toggle-window-split)
 
+;; cool buffer names
+(require 'uniquify)
+
 
 (provide 'laco-editing-misc)
