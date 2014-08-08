@@ -5,7 +5,6 @@
   (exec-path-from-shell-initialize))
 
 
-
 (package-require 'autopair)
 
 (package-require 'popwin)
@@ -25,5 +24,12 @@
 (show-paren-mode 1)
 
 (package-require 'undo-tree)
+(global-undo-tree-mode)
+
+
+;; acejump mode for quick navigation
+(package-require 'ace-jump-mode)
+(define-key global-map (kbd "C-x SPC") 'ace-jump-mode)
+
 
 (provide 'laco-packages-misc)
