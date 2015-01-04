@@ -6,7 +6,7 @@
 ;; I understood as a child, I thought as a child:
 ;; but when I became a man, I put away childish things.
 ;;   -- 1 Corinthians, 13:11
-(dolist (mode '(menu-bar-mode tool-bar-mode scroll-bar-mode))
+(dolist (mode '(tool-bar-mode scroll-bar-mode))
   (when (fboundp mode) (funcall mode -1)))
 
 
@@ -58,9 +58,11 @@
 ;; ELPA
 (setq package-user-dir (concat dotfiles-dir "elpa"))
 (require 'package)
-(dolist (source '(("melpa" . "http://melpa.milkbox.net/packages/")
-                  ("marmalade" . "http://marmalade-repo.org/packages/")
-                  ("elpa" . "http://tromey.com/elpa/")))
+(dolist (source
+         '(
+           ("melpa" . "http://melpa.milkbox.net/packages/")
+           ("marmalade" . "http://marmalade-repo.org/packages/")
+           ("elpa" . "http://tromey.com/elpa/")))
   (add-to-list 'package-archives source t))
 (package-initialize)
 (when (esk-online?)
@@ -81,7 +83,9 @@
 
 ;; Define subpackages by platform
 (setq laco-pkg-full 
-      '(laco-editing-misc
+      '(laco-defuns
+        laco-themes  ; smart mode line + themes
+        laco-editing-misc
 	laco-packages-misc
 	laco-snippets
 	laco-autocomplete
@@ -90,6 +94,8 @@
 	laco-magit
 	laco-projectile
 	laco-python
+        laco-haskell
+        ;;laco-clojure ; bugos
 ))
 
 ;; Now load other things
@@ -99,3 +105,4 @@
 ;; Load custom settings
 (load custom-file 'noerror)
 (put 'narrow-to-region 'disabled nil)
+

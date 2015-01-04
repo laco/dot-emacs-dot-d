@@ -9,9 +9,10 @@
 
 (package-require 'popwin)
 (setq popwin-mode 1)
+(require 'popwin)
+(push '(" *undo-tree*" :width 0.2 :position right) popwin:special-display-config)
+(push '("*Occur*" :width 0.4 :position right :stick t) popwin:special-display-config)
 
-(package-require 'smart-mode-line)
-(sml/setup)
 
 (package-require 'guide-key)
 (setq guide-key/guide-key-sequence '("C-x" "C-x 4" "C-c" "C-x n" "C-x p"))
@@ -19,6 +20,26 @@
 (guide-key-mode 1)
 
 (global-linum-mode)
+(defcustom linum-disabled-modes-list '(eshell-mode wl-summary-mode compilation-mode org-mode text-mode dired-mode doc-view-mode image-mode)
+  "* List of modes disabled when global linum mode is on"
+  :type '(repeat (sexp :tag "Major mode"))
+  :tag " Major modes where linum is disabled: "
+  :group 'linum
+  )
+(defcustom linum-disable-starred-buffers 't
+  "* Disable buffers that have stars in them like *Gnu Emacs*"
+  :type 'boolean
+  :group 'linum)
+
+(defun linum-on ()
+  "* When linum is running globally, disable line number in modes defined in `linum-disabled-modes-list'. Changed by linum-off. Also turns off numbering in starred modes like *scratch*"
+
+  (unless (or (minibufferp)
+              (member major-mode linum-disabled-modes-list)
+              (string-match "*" (buffer-name))
+              (> (buffer-size) 3000000)) ;; disable linum on buffer greater than 3MB, otherwise it's unbearably slow
+    (linum-mode 1)))
+
 
 ;; Show parenthesis mode
 (show-paren-mode 1)
@@ -30,6 +51,19 @@
 ;; acejump mode for quick navigation
 (package-require 'ace-jump-mode)
 (define-key global-map (kbd "C-x SPC") 'ace-jump-mode)
+
+
+(package-require 'helm)
+(package-require 'helm-projectile)
+(require 'helm-config)
+
+(defun setup-helm-keybindings ()
+  (global-set-key (kbd "C-c h") 'helm-command-prefix)
+  (global-unset-key (kbd "C-x c"))
+  (global-set-key (kbd "C-x b") 'helm-mini)
+  (global-set-key (kbd "M-x") 'helm-M-x))
+
+(add-hook 'after-init-hook 'setup-helm-keybindings)
 
 
 (provide 'laco-packages-misc)

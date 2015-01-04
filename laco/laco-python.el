@@ -40,7 +40,7 @@
 ;; Enable auto-complete, autopair and yas for python
 (add-hook 'python-mode-hook 'autopair-mode)
 (add-hook 'python-mode-hook 'yas-minor-mode)
-(add-hook 'python-mode-hook 'auto-complete-mode)
+;; (add-hook 'python-mode-hook 'auto-complete-mode)
 
 ;; switch to the interpreter after executing code
 (setq py-shell-switch-buffers-on-execute-p t)
