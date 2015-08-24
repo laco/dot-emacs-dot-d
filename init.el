@@ -19,6 +19,8 @@
   )
 )
 
+(setenv "LC_ALL" "en_US.UTF-8")
+(setenv "LC_CTYPE" "en_US.UTF-8")
 
 ;; Always ALWAYS use UTF-8
 (set-terminal-coding-system 'utf-8)

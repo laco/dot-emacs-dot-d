@@ -5,10 +5,36 @@
 
 ;; Pytest bindings
 (package-require 'pytest)
+(require 'pytest)
+(add-to-list 'pytest-project-names "emacs-pytest.py")
+(setq pytest-cmd-flags "-x -v --ignore tests/system --ignore node_modules --ignore data --color yes --durations=10 -s")
+
+;; compilation mode ansi support
+(ignore-errors
+  (require 'ansi-color)
+  (defun my-colorize-compilation-buffer ()
+    (when (eq major-mode 'compilation-mode)
+      (ansi-color-apply-on-region compilation-filter-start (point-max))))
+  (add-hook 'compilation-filter-hook 'my-colorize-compilation-buffer))
+
+(defun pytest-run ()
+  "Run the tests interactively asking for the test flags and
+file/dir"
+  (interactive)
+  (let ((tests (expand-file-name
+        (read-file-name "Test directory or file: "
+                        (pytest-find-project-root)))))
+    (run-pytest tests)))
+
+
 (add-hook
  'python-mode-hook
  (lambda ()
-   (define-key python-mode-map (kbd "C-c C-,") 'pytest-run-file)))
+   (define-key python-mode-map (kbd "C-c t f") 'pytest-module)
+   (define-key python-mode-map (kbd "C-c t t") 'pytest-one)
+   (define-key python-mode-map (kbd "C-c t d") 'pytest-directory)
+   (define-key python-mode-map (kbd "C-c t a") 'pytest-all)
+))
 
 ;; Sphinx doc
 (package-require 'sphinx-doc)

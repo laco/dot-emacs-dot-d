@@ -12,6 +12,8 @@
 (require 'popwin)
 (push '(" *undo-tree*" :width 0.2 :position right) popwin:special-display-config)
 (push '("*Occur*" :width 0.4 :position right :stick t) popwin:special-display-config)
+(push '("*pytest*" :width 0.4 :position right :stick t) popwin:special-display-config)
+
 
 
 (package-require 'guide-key)
@@ -65,5 +67,7 @@
 
 (add-hook 'after-init-hook 'setup-helm-keybindings)
 
+(package-require 'ace-window)
+(global-set-key (kbd "C-x o") 'ace-window)
 
 (provide 'laco-packages-misc)
