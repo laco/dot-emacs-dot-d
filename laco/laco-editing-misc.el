@@ -11,7 +11,8 @@
 (setq delete-selection-mode t)
 (setq use-dialog-box nil)
 (setq use-file-dialog nil)
-(setq visible-bell t)
+(setq visible-bell nil)
+
 (setq-default indent-tabs-mode nil) ;; never use tabs!!!
 
 
@@ -94,5 +95,7 @@
 (global-set-key (kbd "H-l") (lambda () (interactive) (insert "\u03bb"))) ;lambda
 (global-set-key (kbd "H-f") (lambda () (interactive) (insert "\u0192"))) ;function
 (global-set-key (kbd "H--") (lambda () (interactive) (insert "\u2192"))) ;arrow
+
+(add-hook 'before-save-hook 'delete-trailing-whitespace)
 
 (provide 'laco-editing-misc)

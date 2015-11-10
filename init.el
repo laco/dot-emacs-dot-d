@@ -62,6 +62,7 @@
 (require 'package)
 (dolist (source
          '(
+           ("elpy" . "http://jorgenschaefer.github.io/packages/")
            ("melpa" . "http://melpa.milkbox.net/packages/")
            ("marmalade" . "http://marmalade-repo.org/packages/")
            ("elpa" . "http://tromey.com/elpa/")))
@@ -84,7 +85,7 @@
   version-control t)
 
 ;; Define subpackages by platform
-(setq laco-pkg-full 
+(setq laco-pkg-full
       '(laco-defuns
         laco-themes  ; smart mode line + themes
         laco-editing-misc
@@ -96,7 +97,7 @@
 	laco-magit
 	laco-projectile
 	laco-python
-        laco-haskell
+        ;; laco-haskell
         ;;laco-clojure ; bugos
 ))
 
@@ -107,4 +108,3 @@
 ;; Load custom settings
 (load custom-file 'noerror)
 (put 'narrow-to-region 'disabled nil)
-
