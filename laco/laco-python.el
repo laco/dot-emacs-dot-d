@@ -85,4 +85,18 @@
 (setq elpy-rpc-python-command "python3")
 (elpy-enable)
 
+(add-hook
+ 'python-mode-hook
+ (lambda ()
+   (define-key python-mode-map (kbd "C-c t f") 'pytest-module)
+   (define-key python-mode-map (kbd "C-c t t") 'pytest-one)
+   (define-key python-mode-map (kbd "C-c t d") 'pytest-directory)
+   (define-key python-mode-map (kbd "C-c t a") 'pytest-all)
+   ))
+
+(package-require 'pytest)
+(require 'pytest)
+(add-to-list 'pytest-project-root-files ".projectile")
+(add-to-list 'pytest-project-root-files "Dockerfile")
+
 (provide 'laco-python)

@@ -41,6 +41,7 @@
 (setq dotfiles-dir (file-name-directory
                     (or (buffer-file-name) load-file-name)))
 (add-to-list 'load-path (concat dotfiles-dir "laco"))
+(add-to-list 'load-path (concat dotfiles-dir "lisp"))
 
 ;; Set paths to custom.el and loaddefs.el
 (setq autoload-file (concat dotfiles-dir "loaddefs.el"))
