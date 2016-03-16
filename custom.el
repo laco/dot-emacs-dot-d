@@ -18,7 +18,11 @@
  '(initial-frame-alist (quote ((width . 196) (height . 60))))
  '(magit-default-tracking-name-function (quote magit-default-tracking-name-branch-only))
  '(popwin-mode t)
+ '(projectile-globally-ignored-directories
+   (quote
+    (".idea" ".eunit" ".git" ".hg" ".fslckout" ".bzr" "_darcs" ".tox" ".svn" ".stack-work" ".ve" "node_modules")))
  '(pyvenv-mode t)
+ '(safe-local-variable-values (quote ((pytest-cmd-flags . "-v -s"))))
  '(sml/theme (quote dark))
  '(uniquify-buffer-name-style (quote post-forward) nil (uniquify)))
 (custom-set-faces

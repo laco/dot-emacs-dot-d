@@ -490,7 +490,7 @@ The type returned can be `comment', `string' or `paren'."
           ;; Python versions.
           "nonlocal"
           ;; Python 3.5+ PEP492
-          (and "async" (+ space) (or "def" "for" "with"))
+          (and "async" (+ space) (or "def" "for" "with")) "await"
           ;; Extra:
           "self")
          symbol-end)
