@@ -106,6 +106,13 @@
 (dolist (file laco-pkg-full)
   (require file))
 
+;; set transparency for the window
+(defun transparency (value)
+  "Sets the transparency of the frame window. 0=transparent/100=opaque"
+  (interactive "nTransparency Value 0 - 100 opaque:")
+  (set-frame-parameter (selected-frame) 'alpha value))
+(transparency 93)
+
 ;; Load custom settings
 (load custom-file 'noerror)
 (put 'narrow-to-region 'disabled nil)

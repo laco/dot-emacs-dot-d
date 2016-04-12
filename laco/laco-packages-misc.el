@@ -59,6 +59,10 @@
 (package-require 'helm-projectile)
 (require 'helm-config)
 
+(package-require 'helm-ag)
+(package-require 'ag)
+(global-set-key (kbd "C-c /") 'helm-ag-project-root)
+
 (defun setup-helm-keybindings ()
   (global-set-key (kbd "C-c h") 'helm-command-prefix)
   (global-unset-key (kbd "C-x c"))
