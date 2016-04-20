@@ -74,4 +74,12 @@
 (package-require 'ace-window)
 (global-set-key (kbd "C-x o") 'ace-window)
 
+(package-require 'spotify)
+(global-set-key (kbd "C-c s s") 'spotify-playpause)
+(global-set-key (kbd "C-c s p") 'spotify-previous)
+(global-set-key (kbd "C-c s n") 'spotify-next)
+(global-set-key (kbd "C-c s c") 'spotify-current)
+(global-set-key (kbd "C-c s q") 'spotify-quit)
+
+
 (provide 'laco-packages-misc)
