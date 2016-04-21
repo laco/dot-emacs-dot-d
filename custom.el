@@ -23,6 +23,7 @@
    (quote
     (".idea" ".eunit" ".git" ".hg" ".fslckout" ".bzr" "_darcs" ".tox" ".svn" ".stack-work" ".ve" "node_modules" "cache")))
  '(projectile-globally-ignored-files (quote ("TAGS" ".eslintcache")))
+ '(python-shell-interpreter "python3.5")
  '(pyvenv-mode t)
  '(safe-local-variable-values (quote ((pytest-cmd-flags . "-v -s"))))
  '(sml/theme (quote dark))

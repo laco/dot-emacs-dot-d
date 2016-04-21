@@ -84,6 +84,10 @@
   kept-new-versions 6
   kept-old-versions 2
   version-control t)
+(setq backup-directory-alist
+      `((".*" . ,temporary-file-directory)))
+(setq auto-save-file-name-transforms
+      `((".*" ,temporary-file-directory t)))
 
 ;; Define subpackages by platform
 (setq laco-pkg-full
@@ -98,6 +102,8 @@
 	laco-magit
 	laco-projectile
 	laco-python
+        laco-javascript
+        laco-typescript
         ;; laco-haskell
         ;;laco-clojure ; bugos
 ))
