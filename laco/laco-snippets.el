@@ -3,8 +3,14 @@
 (package-require 'popup)
 (package-require 'yasnippet)
 (require 'yasnippet)
-(setq yas/root-directory (concat dotfiles-dir "snippets"))
+
 (yas/global-mode 1)
+
+(setq yas-snippet-dirs (append yas-snippet-dirs
+   (list (concat dotfiles-dir "snippets") (concat dotfiles-dir "snippets-official"))))
+
+; git clone git@github.com:AndreaCrotti/yasnippet-snippets.git ~/.emacs.d/snippets-official
+
 
 ;;;; Load Magnar's snippet helpers
 ;;(require 'snippet-helpers)

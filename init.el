@@ -108,6 +108,10 @@
         ;;laco-clojure ; bugos
 ))
 
+;; FIXME
+(autoload 'scss-mode "scss-mode")
+(add-to-list 'auto-mode-alist '("\\.scss\\'" . scss-mode))
+
 ;; Now load other things
 (dolist (file laco-pkg-full)
   (require file))
