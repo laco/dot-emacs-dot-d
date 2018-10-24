@@ -41,14 +41,16 @@
 (require 'package)
 (add-to-list 'package-archives
              '("melpa" . "http://melpa.milkbox.net/packages/") t)
-
+(add-to-list 'package-archives
+	     '("melpa-stable" . "http://stable.melpa.org/packages/") t)
 (unless (package-installed-p 'use-package)
   (package-refresh-contents)
   (package-install 'use-package))
 
 (require 'use-package)
-(setq use-package-always-ensure t)
-
+(setq use-package-always-ensure t
+      package-archive-priorities '(("melpa-stable" . 1)))
+ 
 
 ;;; Essential packages
 
@@ -81,6 +83,13 @@
 ;; avy
 
 ;; evil-mode
+
+;; ensime (scala)
+(use-package ensime
+  :pin melpa-stable
+  :config
+  (add-to-list 'exec-path
+	       "/home/landrasi/.sdkman/candidates/sbt/current/bin/"))
 
 ;; customization
 (setq custom-file "~/.emacs.d/custom.el")
