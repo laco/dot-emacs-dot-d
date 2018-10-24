@@ -34,3 +34,54 @@
 ;; Ignore the ugly splash window and load an empty buffer
 (setq inhibit-splash-screen t)
 (switch-to-buffer "**")
+
+
+;; Install use-package (https://github.com/jwiegley/use-package)
+(package-initialize)
+(require 'package)
+(add-to-list 'package-archives
+             '("melpa" . "http://melpa.milkbox.net/packages/") t)
+
+(unless (package-installed-p 'use-package)
+  (package-refresh-contents)
+  (package-install 'use-package))
+
+(require 'use-package)
+(setq use-package-always-ensure t)
+
+
+;;; Essential packages
+
+;; magit
+(use-package magit)
+
+
+;; helm
+(use-package helm
+  :bind (("M-x" . helm-M-x)
+         ("C-x C-f" . helm-find-files)
+         ("C-x C-b" . helm-buffers-list)
+         ([S-f10] . helm-recentf)))
+
+
+;; projectile
+(use-package projectile
+  :config
+  (projectile-global-mode)
+  (setq projectile-completion-system 'helm)
+  (setq projectile-enable-caching t))
+
+(use-package helm-projectile
+  :bind ("M-t" . helm-projectile-find-file)
+  :config
+  (helm-projectile-on))
+
+;; ag, helm-ag?
+
+;; avy
+
+;; evil-mode
+
+;; customization
+(setq custom-file "~/.emacs.d/custom.el")
+(load custom-file)
