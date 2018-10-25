@@ -66,7 +66,9 @@
   :bind (("M-x" . helm-M-x)
          ("C-x C-f" . helm-find-files)
          ("C-x C-b" . helm-buffers-list)
-         ([S-f10] . helm-recentf)))
+         ([S-f10] . helm-recentf))
+
+  :config (helm-mode 1))
 
 
 ;; projectile
