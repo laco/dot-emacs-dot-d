@@ -91,6 +91,10 @@
   (add-to-list 'exec-path
 	       "/home/landrasi/.sdkman/candidates/sbt/current/bin/"))
 
+
+;; sunburn theme from melpa
+(use-package sunburn-theme)
+
 ;; customization
 (setq custom-file "~/.emacs.d/custom.el")
 (load custom-file)
