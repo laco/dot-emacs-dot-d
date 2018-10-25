@@ -90,15 +90,20 @@
 ;; evil-mode
 
 ;; ensime (scala)
-(use-package ensime
-  :pin melpa-stable
-  :config
-  (add-to-list 'exec-path
-	       "/home/landrasi/.sdkman/candidates/sbt/current/bin/"))
+(use-package ensime :pin melpa-stable)
+(use-package sbt-mode :pin melpa-stable)
+(use-package scala-mode :pin melpa-stable)
 
 
 ;; sunburn theme from melpa
 (use-package sunburn-theme)
+
+
+;; exex-path-from-shell for fixing environment variables
+(use-package exec-path-from-shell
+  :config
+  (exec-path-from-shell-initialize))
+
 
 ;; customization
 (setq custom-file "~/.emacs.d/custom.el")
