@@ -35,6 +35,9 @@
 (setq inhibit-splash-screen t)
 (switch-to-buffer "**")
 
+;; Use Recent Files (https://www.emacswiki.org/emacs/RecentFiles)
+(recentf-mode 1)
+(setq recentf-max-menu-items 32)
 
 ;; Install use-package (https://github.com/jwiegley/use-package)
 (package-initialize)
