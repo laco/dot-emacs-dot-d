@@ -94,11 +94,6 @@
 (use-package sbt-mode :pin melpa-stable)
 (use-package scala-mode :pin melpa-stable)
 
-
-;; sunburn theme from melpa
-(use-package sunburn-theme)
-
-
 ;; exex-path-from-shell for fixing environment variables
 (use-package exec-path-from-shell
   :config
