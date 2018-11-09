@@ -99,6 +99,16 @@
   :config
   (exec-path-from-shell-initialize))
 
+;; auto complete
+(use-package company
+  :config
+  (global-company-mode)
+  (setq company-idle-delay 0)
+  (setq company-echo-delay 0))
+
+(use-package company-statistics
+  :config
+  (add-hook 'after-init-hook 'company-statistics-mode))
 
 ;; customization
 (setq custom-file "~/.emacs.d/custom.el")
