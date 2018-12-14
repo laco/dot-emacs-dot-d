@@ -84,7 +84,9 @@
   (helm-projectile-on))
 
 ;; ag, helm-ag?
-
+(use-package ag)
+(use-package helm-ag)
+(use-package helm-git-grep)
 ;; avy
 
 ;; evil-mode
