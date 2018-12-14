@@ -110,6 +110,15 @@
   :config
   (add-hook 'after-init-hook 'company-statistics-mode))
 
+
+;; clojure programming essentials
+(use-package clojure-mode)
+(use-package paredit
+  :init
+  (add-hook 'clojure-mode-hook 'paredit-mode))
+
+(use-package cider)
+
 ;; customization
 (setq custom-file "~/.emacs.d/custom.el")
 (load custom-file)
