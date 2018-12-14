@@ -119,6 +119,15 @@
 
 (use-package cider)
 
+
+;; Disable background if opened in a terminal
+
+(defun on-after-init ()
+  (unless (display-graphic-p (selected-frame))
+    (set-face-background 'default "unspecified-bg" (selected-frame))))
+
+(add-hook 'window-setup-hook 'on-after-init)
+
 ;; customization
 (setq custom-file "~/.emacs.d/custom.el")
 (load custom-file)
