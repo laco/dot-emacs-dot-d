@@ -18,6 +18,10 @@
 (defalias 'yes-or-no-p 'y-or-n-p)
 
 
+;; Enable line numbers
+(when (version<= "26.0.50" emacs-version )
+  (global-display-line-numbers-mode))
+
 ;; Write backup files to .saves directory
 (setq backup-directory-alist `(("." . "~/.saves"))
       backup-by-copying t
