@@ -118,10 +118,17 @@
 
 
 ;; clojure programming essentials
-(use-package clojure-mode)
+(use-package clojure-mode
+  :init
+  (add-hook 'clojure-mode-hook #'show-paren-mode))
+
 (use-package paredit
   :init
   (add-hook 'clojure-mode-hook 'paredit-mode))
+
+(use-package rainbow-delimiters
+  :init
+  (add-hook 'clojure-mode-hook #'rainbow-delimiters-mode))
 
 (use-package cider)
 

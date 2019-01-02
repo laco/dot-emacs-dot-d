@@ -7,7 +7,9 @@
  '(custom-safe-themes
    (quote
     ("645599a2aab022fd7677124515a3104a60ba64d2cafdd77a6e7703f8ae97250c" default)))
- '(package-selected-packages (quote (ensime use-package magit helm-projectile))))
+ '(package-selected-packages
+   (quote
+    (rainbow-delimiters ensime use-package magit helm-projectile))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
