@@ -138,6 +138,11 @@
   :config
   (evil-mode))
 
+
+(use-package which-key
+  :config
+  (which-key-mode))
+
 ;; Disable background if opened in a terminal
 
 (defun on-after-init ()
