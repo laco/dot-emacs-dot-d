@@ -132,6 +132,11 @@
 
 (use-package cider)
 
+(use-package evil
+  :init
+  (setq evil-search-module 'evil-search)
+  :config
+  (evil-mode))
 
 ;; Disable background if opened in a terminal
 
