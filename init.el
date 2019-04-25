@@ -146,6 +146,9 @@
 
 (use-package php-mode)
 (use-package smarty-mode)
+
+(use-package rust-mode)
+
 ;; Disable background if opened in a terminal
 
 (defun on-after-init ()
